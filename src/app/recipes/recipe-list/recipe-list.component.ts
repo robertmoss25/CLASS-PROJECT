@@ -18,6 +18,14 @@ export class RecipeListComponent implements OnInit {
   }
 
   ngOnInit() {
+    // This is the event handler from when a new item is added in recipe-item.
+    // It will get the recipe list passed and then set the pointer recipes with
+    // the new list
+    this.recipeService.recipesChanged.subscribe(
+      (recipes: Recipe[]) => {
+        this.recipes = recipes;
+      }
+    )
     this.recipes = this.recipeService.getRecipes();
   }
 
