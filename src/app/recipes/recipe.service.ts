@@ -54,4 +54,11 @@ export class RecipeService {
     // which will add the new recipe to the list
     this.recipesChanged.next(this.recipes.slice());
   }
+
+  deleteRecipe(index: number) {
+    this.recipes.splice(index,1);
+    // This is needed to handle deleting an item. it will trigger an event
+    // which will delete the recipe from the list
+    this.recipesChanged.next(this.recipes.slice());
+  }
 }
