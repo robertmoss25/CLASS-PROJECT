@@ -61,4 +61,9 @@ export class RecipeService {
     // which will delete the recipe from the list
     this.recipesChanged.next(this.recipes.slice());
   }
+
+  setRecipes(recipes: Recipe[]) {
+    this.recipes = recipes;
+    this.recipesChanged.next(this.recipes.slice());
+  }
 }
